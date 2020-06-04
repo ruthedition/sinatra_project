@@ -1,6 +1,8 @@
 class ApplicationController < Sinatra::Base
 
-  get '/' do 
-    "Wines"
+  configure do
+    set :public_folder, 'public'
+    set :view, 'app/views'
   end 
+  
 end
