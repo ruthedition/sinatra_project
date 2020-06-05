@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
+  
   has_secure_password
-  has_many :wines
   validates :username, uniqueness: true
+  validates :username, presence: true
+  has_many :wines
 
   def slug
     self.name.downcase.tr("","-")

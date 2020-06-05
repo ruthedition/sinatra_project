@@ -1,0 +1,16 @@
+<% if @user && @user.errors.any? %>
+  
+  <% @user.errors.full_messages.each do |msg| %>
+    <p> <%= msg %> </p>
+  <% end %>
+
+<% end %>
+
+<form action="/signup" method="POST">
+  <input type="text" name="name" id="" placeholder="Name">
+  <input type="text" name="username" id="" placeholder="Username">
+  <input type="password" name="password" id="" placeholder="Password">
+  <input type="submit" value="Sign Up">
+</form>
+
+<a href="/login">Login</a>

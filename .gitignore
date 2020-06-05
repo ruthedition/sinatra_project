@@ -10,7 +10,7 @@
 /test/version_tmp/
 /tmp/
 .DS_Store
-
+secret.rb
 # Used by dotenv library to load environment variables.
 # .env
 
