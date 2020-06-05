@@ -1,12 +1,11 @@
 class ApplicationController < Sinatra::Base
 
-  enable :sessions
   set :session_secret, ENV['SESSION_SECRET']
-  # configure do
-  #   set :public_folder, 'public'
-  #   set :views, 'app/views'
-  # end 
-
+  configure do
+    set :public_folder, 'public'
+    set :views, 'app/views'
+  end 
+  enable :sessions
 
   get '/' do 
     erb :home
@@ -26,9 +25,9 @@ class ApplicationController < Sinatra::Base
       redirect '/login' if !logged_in?
     end 
 
-    def authorize(wines)
+    def authorize(user)
       authenticate
-      redirect '/wines' if wine.user != current_user
+      redirect "/users/#{user.slug}" if user != current_user
     end 
 
   end 
