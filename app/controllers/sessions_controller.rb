@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
 
   post '/login' do 
     user = User.find_by(username: params[:username])
-    if user && u.authenticate(params[:password])
-      session[:user.id] = user.id
-      redirect '/wine'
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect :"/users/#{user.slug}"     
     else
       @err = "Invalid Credentials"
       erb :'login'
@@ -20,11 +20,10 @@ class SessionsController < ApplicationController
   end 
 
   post '/signup' do
-   # binding.pry -> find out what the params are
-    @user = User.new(name: params[:name], username: params[:username], password: params[:password])
-    if @user.save
-      session[:user_id] = @user.id
-      # redirect to the path where the user will go after they sign up     
+    user = User.new(params)
+    if user.save
+      session[:user_id] = user.id
+      redirect :"/users/#{user.slug}"     
     else
       erb :'sessions/signup'
     end 
