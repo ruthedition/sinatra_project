@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
   has_many :wines
 
   def slug
-    self.name.downcase.tr("","-")
+    self.username.downcase.tr("","-")
   end 
 
-  def find_by_slug(slug)
+  def self.find_by_slug(slug)
     self.all.find do |instance|
       instance.slug == slug
     end 
