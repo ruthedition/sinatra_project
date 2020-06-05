@@ -1,0 +1,16 @@
+<h2>Hello <%=@user.username%>! Here is a list of your wines.</h2> 
+
+<% @user.wines.each do |wine| %>
+  <a href="/wines/<%= wine.id %>"><%= wine.name %></a>
+<% end %>
+
+<h3> <a href="/wines/new">New Bottle</a> <a href="/wines/edit">Update this Bottle</a> </h3> 
+
+<form action="submit" method="POST">
+  
+  <input type="hidden" name="_method" value="delete">
+  <h3><input type="submit" value="Delete"> to remove from your collection</h3>
+
+</form>
+
+<p>Edit your account <a href="/users/<%= @user.slug %>/edit">here</a></p>
