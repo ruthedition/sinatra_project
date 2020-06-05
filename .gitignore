@@ -12,6 +12,7 @@
 .DS_Store
 secret.rb
 *.sqlite
+Gemfile.lock
 # Used by dotenv library to load environment variables.
 # .env
 
