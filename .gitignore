@@ -11,6 +11,7 @@
 /tmp/
 .DS_Store
 secret.rb
+*.sqlite
 # Used by dotenv library to load environment variables.
 # .env
 
