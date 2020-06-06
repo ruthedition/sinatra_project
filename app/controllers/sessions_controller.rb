@@ -34,5 +34,4 @@ class SessionsController < ApplicationController
     redirect '/login'
   end 
 
-  
 end

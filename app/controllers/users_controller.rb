@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   post '/users/:slug' do 
     @user = User.find_by_slug(params[:slug])
     authorize(@user)
+    @user.update(username: params[:username], email: params[:email], password: params[:password])
     erb :'users/show'
   end 
     

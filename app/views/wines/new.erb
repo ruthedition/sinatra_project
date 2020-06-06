@@ -1,0 +1,42 @@
+<h2>Add a New Bottle to Your Collection</h2>
+
+<form action="/wines/<%= @wine" metheod="POST">
+
+  <label for="name">Bottle Name:</label>
+  <input type="text" name="name" placeholder="Bottle Name"><br>
+
+  <br>
+
+  <label for="type">Wine Type: </label>
+    <select name="type" required>
+      <option> Select One</option>
+      <option value="Riesling"> Riesling</option>
+      <option value="Pinot Gris"> Pinot Gris</option>
+      <option value="Sauvignon Blanc"> Sauvignon Blanc</option>
+      <option value="Chardonnay"> Chardonnay</option>
+      <option value="Pinot Noir"> Pinot Noir</option>
+      <option value="Zinfandel"> Zinfandel</option>
+      <option value="Syrah"> Syrah</option>
+      <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+    </select><br>
+  
+  <br>
+
+  <label for="other">Please enter the type of wine below if not found in the list above</label><br>
+    <input type="text" name="wine" placeholder="Wine Type"><br>
+
+  <br>
+  
+  <label for="price">Price:</label>
+    <input type="text" name="price" placeholder="$0.00"><br>
+
+  <br>
+
+  <label for="year_sealed">Year Sealed:</label>
+    <input type="text" name="year_sealed" placeholder="2015"><br>
+
+  <br>
+
+  <input type="submit" value="Add Wine">
+
+</form>
