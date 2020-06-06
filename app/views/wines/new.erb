@@ -1,14 +1,30 @@
+<% if @error %>
+    <p><%= @error %></p>
+<% end %>
+
 <h2>Add a New Bottle to Your Collection</h2>
 
-<form action="/wines/<%= @wine" metheod="POST">
+<form action="/wines" method="POST">
 
   <label for="name">Bottle Name:</label>
-  <input type="text" name="name" placeholder="Bottle Name"><br>
+  <input type="text" name="name" placeholder="Bottle Name" required><br>
 
   <br>
 
-  <label for="type">Wine Type: </label>
-    <select name="type" required>
+  <label for="type">Country: </label>
+
+    <select name="country" required>
+      <option> Select One</option>
+      <%@countries.each do |country|%>  
+        <option value="<%=country.name%>"><%=country.name%></option>
+      <% end %>
+    
+    </select> <br>
+
+  <br>
+
+  <label for="wine_type">Wine Type: </label>
+    <select name="wine_type" required>
       <option> Select One</option>
       <option value="Riesling"> Riesling</option>
       <option value="Pinot Gris"> Pinot Gris</option>
@@ -32,8 +48,8 @@
 
   <br>
 
-  <label for="year_sealed">Year Sealed:</label>
-    <input type="text" name="year_sealed" placeholder="2015"><br>
+  <label for="year">Year Sealed:</label>
+    <input type="text" name="year" placeholder="2015"><br>
 
   <br>
 

@@ -1,5 +1,14 @@
-  <%= wine.name %>
-  <%= wine.type %>
-  <%= wine.country %>
-  <%= wine.year_sealed %>
-  <%= wine.price %>
+  <%= @wine.name %>
+  <%= @wine.wine_type %>
+  <%= @wine.country.name %>
+  <%= @wine.year_sealed %>
+  <%= @wine.price %>
+
+
+
+  <h3><a href="/wines/<%=@wine.id%>/edit">Update this Bottle</a> </h3>
+
+<form action="/wines/<%= @wine.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <h3><input type="submit" value="Delete"> to remove from your collection</h3>
+</form>
