@@ -2,12 +2,12 @@
 
 Specs:
 - [x] Use Sinatra to build the app
-- [ ] Use ActiveRecord for storing information in a database
+- [x] Use ActiveRecord for storing information in a database Storing user, wine and country
 - [x] Include more than one model class (e.g. User, Post, Category) Wine, User, Country
 - [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts) User has_many Wines, Country has_many Wines
 - [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User) Wine belongs_to User Wine belongs_to Country
-- [ ] Include user accounts with unique login attribute (username or email)
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+- [x] Include user accounts with unique login attribute (username or email) Validate for uniqueness
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying Wine
 - [ ] Ensure that users can't modify content created by other users
 - [ ] Include user input validations
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
