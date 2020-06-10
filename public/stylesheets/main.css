@@ -50,15 +50,22 @@ footer {
 
 .login #login-form {
   text-align: center;
-  padding: 185px;
+  padding: 270px;
   font-size: larger;
+}
+
+.login #error-login-form {
   background-color: #f5f1f0;
+  text-align: center;
+  padding: 180px;
+  font-size: larger;
 }
 
 .signup #signup-form {
   text-align: center;
   padding: 170px;
   font-size: larger;
+  margin: 62px;
 }
 
 .error img {
