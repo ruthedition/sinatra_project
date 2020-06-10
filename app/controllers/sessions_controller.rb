@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect :"/users/#{user.slug}"     
     else
-      @err = "Invalid Credentials"
-      erb :'login'
+      @error = "Invalid Credentials"
+      erb :'sessions/login'
     end
   end 
 
