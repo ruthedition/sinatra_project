@@ -1,10 +1,37 @@
+body, html {
+  height: 100%;
+  margin: 0px;
+}
+
 header, footer {
   background-color: rgb(118, 24, 24);
   color: white;
   text-align: center;
   padding: 5px;
+  position: fixed;
+  width: 100%;
 }
 
-#link {
+header {
+  top: 0;
+}
+
+footer {
+  bottom: 0;
+}
+.white-link {
   color: white;
 }
+
+.login #login-form {
+  text-align: center;
+  padding: 190px;
+  font-size: larger;
+}
+
+.signup #signup-form {
+  text-align: center;
+  padding: 170px;
+  font-size: larger;
+}
+
