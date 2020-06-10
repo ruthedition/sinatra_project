@@ -6,7 +6,9 @@
 
   <section id="wine-list">
     <% @user.wines.each do |wine| %>
-      <a href="/wines/<%= wine.id %>"><%= wine.name %></a>
+      <h2>
+        <a href="/wines/<%= wine.id %>"><%= wine.name %></a>
+      </h2>
     <% end %>
   </section>
   
