@@ -1,3 +1,6 @@
-div .background-color {
-  background-color: green;
+header, footer {
+  background-color: rgb(118, 24, 24);
+  color: white;
+  text-align: center;
+  padding: 5px;
 }

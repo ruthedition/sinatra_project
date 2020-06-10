@@ -1,0 +1,20 @@
+.homepage {
+  text-align: center;
+  margin: 0px;
+}
+.homepage #wineimg {
+  text-align: center;
+}
+
+.homepage #options {
+  background-color: rgb(118, 24, 24);
+  padding: 1px;
+}
+
+.homepage #options #text a {
+  display: inline-block;
+  padding: 0px 80px;
+  font-size: larger;
+  color: white;
+}
+
