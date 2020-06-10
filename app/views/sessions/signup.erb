@@ -1,6 +1,6 @@
 <div class="signup">
 
-  <section id="error">
+  <section class="error">
     <% if @user && @user.errors.any? %>
       <img src="/images/broken_glass.png">
       <% @user.errors.full_messages.each do |msg| %>
