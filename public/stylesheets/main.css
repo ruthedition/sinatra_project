@@ -32,13 +32,16 @@ footer {
 #logout-form {
   display: inline-block;
 }
+
 #account-settings #links .white-link  {
   display: inline-block;
   font-size: larger;
 }
+
 #links {
   display: flex;
   justify-content: space-around;
+  
 }
 
 .white-link {

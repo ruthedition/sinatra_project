@@ -1,58 +1,76 @@
-<% if @error %>
-    <p><%= @error %></p>
-<% end %>
+<div class="new-wine">
 
-<h2>Add a New Bottle to Your Collection</h2>
-
-<form action="/wines" method="POST">
-
-  <label for="name">Bottle Name:</label>
-  <input type="text" name="name" placeholder="Bottle Name" required><br>
-
-  <br>
-
-  <label for="type">Country: </label>
-
-    <select name="country" required>
-      <option> Select One</option>
-      <%@countries.each do |country|%>  
-        <option value="<%=country.name%>"><%=country.name%></option>
-      <% end %>
-    
-    </select> <br>
-
-  <br>
-
-  <label for="wine_type">Wine Type: </label>
-    <select name="wine_type" required>
-      <option> Select One</option>
-      <option value="Riesling"> Riesling</option>
-      <option value="Pinot Gris"> Pinot Gris</option>
-      <option value="Sauvignon Blanc"> Sauvignon Blanc</option>
-      <option value="Chardonnay"> Chardonnay</option>
-      <option value="Pinot Noir"> Pinot Noir</option>
-      <option value="Zinfandel"> Zinfandel</option>
-      <option value="Syrah"> Syrah</option>
-      <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
-    </select><br>
+  <section class="error"> 
+    <% if @error %>
+      <img src="/images/broken_glass.png">
+        <p><%= @error %></p>
+    <% end %>
+  </section>
   
-  <br>
+  <header>
+    <h2>Add a New Bottle to Your Collection</h2>
+  </header>
 
-  <label for="other">Please enter the type of wine below if not found in the list above</label><br>
-    <input type="text" name="wine" placeholder="Wine Type"><br>
+  <section id="new-wine-form">
+    <form action="/wines" method="POST">
+      <div> 
+        <label for="name">Bottle Name:</label>
+        <input type="text" name="name" placeholder="Bottle Name" required><br>
+      </div>
+      <br>
+      <div> 
+        <label for="type">Country: </label>
+          <select name="country" required>
+            <option> Select One</option>
+            <%@countries.each do |country|%>  
+              <option value="<%=country.name%>"><%=country.name%></option>
+            <% end %>
+          
+          </select> <br>
+      </div>
+      
 
-  <br>
+      <br>
+      <div>
+        <label for="wine_type">Wine Type: </label>
+          <select name="wine_type" required>
+            <option> Select One</option>
+            <option value="Riesling"> Riesling</option>
+            <option value="Pinot Gris"> Pinot Gris</option>
+            <option value="Sauvignon Blanc"> Sauvignon Blanc</option>
+            <option value="Chardonnay"> Chardonnay</option>
+            <option value="Pinot Noir"> Pinot Noir</option>
+            <option value="Zinfandel"> Zinfandel</option>
+            <option value="Syrah"> Syrah</option>
+            <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+          </select><br>
+      </div>
+      
+      <br>
+      <div>
+        <label for="other">Other type of wine if not found in the list above:</label>
+          <input type="text" name="wine" placeholder="Wine Type">
+      </div>
+     
+      <br>
+      <div>
+        <label for="price">Price:</label>
+          <input type="text" name="price" placeholder="$0.00"><br>
+      </div>
+     
+
+      <br>
+      <div>
+        <label for="year">Year Sealed:</label>
+          <input type="text" name="year" placeholder="2015"><br>
+      </div>
+      
+      <br>
+
+      <input type="submit" value="Add Wine">
+
+    </form>
+  </section>
   
-  <label for="price">Price:</label>
-    <input type="text" name="price" placeholder="$0.00"><br>
 
-  <br>
-
-  <label for="year">Year Sealed:</label>
-    <input type="text" name="year" placeholder="2015"><br>
-
-  <br>
-
-  <input type="submit" value="Add Wine">
-
-</form>
+</div>

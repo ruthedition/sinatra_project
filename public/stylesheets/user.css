@@ -1,0 +1,20 @@
+#wine-list {
+  position: absolute;
+  margin-top: 80px;
+  margin-left: 30px;
+}
+
+.edit-account #edit-account-form {
+  text-align: center;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.edit-account form {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}

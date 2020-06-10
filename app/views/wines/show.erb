@@ -1,14 +1,28 @@
-  <%= @wine.name %>
-  <%= @wine.wine_type %>
-  <%= @wine.country.name %>
-  <%= @wine.year_sealed %>
-  <%= @wine.price %>
+<div class="wine">
+  
+  <section id="img">
+    <img src="/images/bottles.png">
+  </section>
+  
+  <header id="update-link">
+    <h3 id="edit-links">
+      <a class="white-link" href="/wines/<%=@wine.id%>/edit">Update Bottle</a>
+      <form id="delete-form" action="/wines/<%= @wine.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input class="white-link" type="submit" value="Delete">
+      </form>
+    </h3>
+  </header>
 
+  <section id="description">
+    <h2>Name: <%= @wine.name %><br></h2>
+    <h2>Wine Type: <%= @wine.wine_type %><br></h2>
+    <h2>Country: <%= @wine.country.name %><br></h2>
+    <h2>Year Sealed: <%= @wine.year_sealed %><br></h2>
+    <h2>Price: <%= @wine.price %></h2>
 
+  </section>
+</div>
+  
+  
 
-  <h3><a href="/wines/<%=@wine.id%>/edit">Update this Bottle</a> </h3>
-
-<form action="/wines/<%= @wine.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <h3><input type="submit" value="Delete"> to remove from your collection</h3>
-</form>
