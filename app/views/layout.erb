@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/main.css">
     <title>Wine Collection</title>
 </head>
 <body>
     <%= yield %>
-
 <br>
 
     <% if logged_in? %>
-            <form action="/logout" method="post">
-                <input type="hidden" name="_method" value="delete">
-                <input type="submit" value="Logout">
-            </form>
-        <% end %>
+        <form action="/logout" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Logout">
+        </form>
+    <% end %>
 </body>
 </html>
   

@@ -12,6 +12,9 @@ class UsersController < ApplicationController
     erb :'users/edit'
   end 
 
+
+
+  #password authenticate
   post '/users/:slug' do 
     @user = User.find_by_slug(params[:slug])
     authorize(@user)

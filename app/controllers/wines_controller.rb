@@ -29,7 +29,7 @@ class WinesController < ApplicationController
    get '/wines/:id/edit' do
     @countries = Country.all.order(:name)
     @wine = Wine.find_by(id: params[:id])
-    authorize(current_user)
+    authorize(@wine.user)
     erb :'wines/edit'
   end 
   
@@ -38,7 +38,7 @@ class WinesController < ApplicationController
     @wine = Wine.find_or_create_by(id: params[:id])
     country = Country.find_by(name: params[:country])
     type = params[:wine_type].empty? ? params[:wine] : params[:wine_type]
-    authorize(current_user)
+    authorize(@wine.user)
     if @wine && @wine.update(
       name: params[:name], 
       country: country, 
