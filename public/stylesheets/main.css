@@ -41,7 +41,7 @@ footer {
 #links {
   display: flex;
   justify-content: space-around;
-  
+  color: rgb(118, 24, 24);
 }
 
 .white-link {

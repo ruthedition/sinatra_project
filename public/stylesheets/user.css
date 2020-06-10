@@ -21,8 +21,15 @@
 
 .user-show section#wine-list a {
   text-align: center;
-  position: fixed;
-  margin-top: 30px;
-  margin-left: 550px;
+  position: relative;
+  margin-top: 30px; 
+}
 
+.user-show a:visited {
+  color: #607D8B ;
+}
+
+.user-show a:link {
+  color: rgb(118, 24, 24);
+  ;
 }

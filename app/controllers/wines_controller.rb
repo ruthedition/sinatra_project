@@ -37,7 +37,7 @@ class WinesController < ApplicationController
   patch '/wines/:id' do
     @wine = Wine.find_or_create_by(id: params[:id])
     country = Country.find_by(name: params[:country])
-    type = params[:wine_type].empty? ? params[:wine] : params[:wine_type]
+    type = params[:wine_type].empty? || params[:wine_type] == "Select One" ? params[:wine] : params[:wine_type]
     authorize(current_user)
     if @wine && @wine.update(
       name: params[:name], 
