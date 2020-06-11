@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   end 
 
   post '/signup' do
-    user = User.new(params)
+   user = User.new(username: params[:username].gsub(/[\<\>\/]/, ""), email: params[:email].gsub(/[\<\>\/]/, ""), password: params[:password])
+    # user = User.new(params])
     if user.save
       session[:user_id] = user.id
       redirect :"/users/#{user.slug}"     

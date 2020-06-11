@@ -14,10 +14,12 @@ header, footer {
 
 header {
   top: 0;
+  z-index: 1000;
 }
 
 footer {
   bottom: 0;
+  z-index: 1000;
 }
 
 #logout-submit {

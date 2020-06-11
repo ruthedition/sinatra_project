@@ -53,12 +53,13 @@
       <br>
       
       <label for="price">Price:</label>
-        <input type="text" name="price" value="<%=@wine.price%>">
+        <input type="number" name="price" value="<%=@wine.price%>">
 
       <br>
 
       <label for="year">Year Sealed:</label>
-        <input type="text" name="year" value="<%=@wine.year_sealed%>">
+        <%time = Time.now%>
+          <input type="number" min="1900" max="<%=time.year%>" name="year" value="<%=@wine.year_sealed%>">
 
       <br>
 

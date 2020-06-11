@@ -8,13 +8,19 @@ class WinesController < ApplicationController
   post '/wines' do 
     country = Country.find_by(name: params[:country])
     type = params[:wine_type].empty? ? params[:wine] : params[:wine_type]
-    @wine = Wine.new(
+    # # binding.pry
+    # if country == nil 
+    #   @error = "Please be sure to check your country and type fields."
+    #   @countries = Country.all.order(:name)
+    #   erb :'wines/new'
+    # end
+      @wine = Wine.new(
       name: params[:name], 
       country: country, 
       wine_type: type, 
       price: params[:price], 
       year_sealed: params[:year]
-    )
+    ) 
     if @wine.save! 
       current_user.wines << @wine
       redirect "users/#{current_user.slug}"
