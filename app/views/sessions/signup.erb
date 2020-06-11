@@ -1,34 +1,44 @@
-<% if @user && @user.errors.any? %>
-  
-  <% @user.errors.full_messages.each do |msg| %>
-    <p> <%= msg %> </p>
-  <% end %>
+<div class="signup">
 
-<% end %>
+  <section class="error">
+    <% if @user && @user.errors.any? %>
+      <img src="/images/broken_glass.png">
+      <% @user.errors.full_messages.each do |msg| %>
+        <p> <%= msg %> </p>
+      <% end %>
+    <% end %>
+  </section>
 
+  <header>
+    <h2>Sign up to create your collection of wines</h2>
+  </header>
 
-<h3>Sign up to create your collection of wines</h3>
+  <section id="signup-form">
+    <form action="/signup" method='POST'>
+      <label for="username">Username: 
+        <input type="text" name="username" placeholder="username"><br>
+      </label>
 
-<form action="/signup" method='POST'>
-  <label for="username">Username: 
-    <input type="text" name="username" placeholder="username"><br>
-  </label>
+      <br>
 
-  <br>
+      <label for="email">Email: 
+        <input type="email" name="email" placeholder="email"><br>
+      </label>
 
-  <label for="email">Email: 
-    <input type="email" name="email" placeholder="email"><br>
-  </label>
+      <br>
+      
+      <label for="password">Password:
+      <input type="password" name="password" placeholder="Password"><br>
+      </label>
+      
+      <br>
 
-  <br>
-  
-  <label for="password">Password:
-  <input type="password" name="password" placeholder="Password"><br>
-  </label>
-  
-  <br>
+      <input type="submit" value="Sign Up"> 
+    </form>
+  </section>
 
-  <input type="submit" value="Sign Up"> 
-</form>
+  <footer>
+    <h2>Already have an account, log in <a class="white-link" href="/login">here</a>!</h2>
+  </footer>
 
-<h4>Already have an account, log in <a href="/login">here</a>!</h4>
+</div>

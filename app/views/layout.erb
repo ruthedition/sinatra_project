@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/homepage.css">
+    <link rel="stylesheet" href="/stylesheets/user.css">
+    <link rel="stylesheet" href="/stylesheets/wine.css">
     <title>Wine Collection</title>
 </head>
 <body>
     <%= yield %>
-<br>
 
     <% if logged_in? %>
-        <form action="/logout" method="post">
-            <input type="hidden" name="_method" value="delete">
-            <input type="submit" value="Logout">
-        </form>
+        <footer id="account-settings">
+            <h3 id="links"> 
+                <a class="white-link" href="/users/<%= current_user.slug %>">Wine List</a>
+                <a class="white-link" href="/wines/new">New Bottle</a>
+                <a class="white-link" href="/users/<%= current_user.slug %>/edit">Edit Account</a>
+                <form id="logout-form" action="/logout" method="post">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <input class="white-link" id="logout-submit" type="submit" value="Log Out"/>
+                </form>
+            </h3>
+        </footer>
+        
     <% end %>
 </body>
 </html>

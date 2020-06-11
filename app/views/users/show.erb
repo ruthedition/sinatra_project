@@ -1,13 +1,16 @@
-<h2>Hello <%=@user.username%>! Here is a list of your wines.</h2> 
+<div class="user-show">
 
-<% @user.wines.each do |wine| %>
-  <a href="/wines/<%= wine.id %>"><%= wine.name %></a>
-<% end %>
+  <header>
+    <h2>Hello <%=@user.username.capitalize%>! Here is a list of your wines.</h2> 
+  </header>
 
-<h3> <a href="/wines/new">New Bottle</a></h3> 
-
-<form action="submit" method="POST">
+  <section id="wine-list">
+    <% @user.wines.each do |wine| %>
+      <h2>
+        <a href="/wines/<%= wine.id %>"><%= wine.name %></a>
+      </h2>
+    <% end %>
+  </section>
   
-</form>
+</div>
 
-<p>Edit your account <a href="/users/<%= @user.slug %>/edit">here</a></p>

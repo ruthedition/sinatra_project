@@ -1,0 +1,76 @@
+.new-wine #new-wine-form {
+  text-align: center;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.new-wine form {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.edit-wine #edit-wine-form {
+  text-align: center;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.edit-wine form {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-top: 65px;
+}
+
+.wine #img img {
+  position: fixed;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 50px;
+} 
+
+.wine #delete-form .white-link {
+  background: none;
+  border: none;
+  padding: 0 !important;
+  text-decoration: underline;
+  cursor: pointer;
+  font: unset;
+}
+
+.wine #edit-links .white-link  {
+  display: inline-block;
+  font-size: larger;
+}
+
+.wine #edit-links {
+  display: flex;
+  justify-content: space-around;
+  
+}
+.wine #delete-form {
+  display: inline-block;
+}
+
+
+.wine section#description {
+  position: fixed;
+  text-align: center;
+  font-size: x-large;
+  margin-top: 92px;
+  margin-left: 400px; 
+}
+
+.wine #img {
+  opacity: 0.3;
+  position: fixed;
+  width: 150%;
+  z-index: -5; 
+}

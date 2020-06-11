@@ -4,6 +4,16 @@ class SessionsController < ApplicationController
     erb :'sessions/signup'
   end 
 
+  post '/signup' do
+    user = User.new(params)
+    if user.save
+      session[:user_id] = user.id
+      redirect :"/users/#{user.slug}"     
+    else
+      erb :'sessions/signup'
+    end 
+  end
+  
   get '/login' do 
     erb :'sessions/login'
   end 
@@ -14,20 +24,10 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect :"/users/#{user.slug}"     
     else
-      @err = "Invalid Credentials"
-      erb :'login'
+      @error = "Invalid Credentials"
+      erb :'sessions/login'
     end
   end 
-
-  post '/signup' do
-    user = User.new(params)
-    if user.save
-      session[:user_id] = user.id
-      redirect :"/users/#{user.slug}"     
-    else
-      erb :'sessions/signup'
-    end 
-  end
 
   delete '/logout' do 
     session.clear

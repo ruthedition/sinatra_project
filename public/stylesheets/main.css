@@ -1,0 +1,88 @@
+body, html {
+  height: 100%;
+  margin: 0px;
+}
+
+header, footer {
+  background-color: rgb(118, 24, 24);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  width: 100%;
+}
+
+header {
+  top: 0;
+}
+
+footer {
+  bottom: 0;
+}
+
+#logout-submit {
+  background: none;
+  border: none;
+  padding: 0 !important;
+  text-decoration: underline;
+  cursor: pointer;
+  font: unset;
+}
+
+#logout-form {
+  display: inline-block;
+}
+
+#account-settings #links .white-link  {
+  display: inline-block;
+  font-size: larger;
+}
+
+#links {
+  display: flex;
+  justify-content: space-around;
+  color: rgb(118, 24, 24);
+}
+
+.white-link {
+  color: white;
+}
+
+.login #login-form {
+  text-align: center;
+  padding: 270px;
+  font-size: larger;
+}
+
+.login #error-login-form {
+  background-color: #f5f1f0;
+  text-align: center;
+  padding: 180px;
+  font-size: larger;
+}
+
+.signup #signup-form {
+  text-align: center;
+  padding: 170px;
+  font-size: larger;
+  margin: 62px;
+}
+
+.error img {
+  position: fixed;
+  margin-left: 732px;
+  margin-top: -80px;
+  opacity: .3;
+  height: 492px;
+  width: 579px;
+  background-color: #f5f1f0;
+}
+
+
+.login .error h2#error-text {
+  text-align: center;
+  background-color: #f5f1f0;
+  margin: 0px;
+  display: block;
+  padding-top: 78px;
+}

@@ -1,23 +1,36 @@
-<% if @err %>
-    <p><%= @err %></p>
-<% end %>
+<div class="login">
 
-<h3>Login to see your collection of wines</h3>
+  <section class="error">
+    <% if @error %>
+    <img src="/images/broken_glass.png">
+      <h2 id="error-text"><%= @error %></h2>
+    <% end %>
+  </section>
 
-<form action="/login" method='POST'>
-  <label for="username">Username: 
-    <input type="text" name="username" placeholder="username"><br>
-  </label>
+  <header>
+    <h2>Login to see your collection of wines</h2>
+  </header> 
 
-  <br>
+  <section id="<%=@error ? 'error-login-form' : 'login-form' %>">
+    <form action="/login" method='POST'>
+      <label for="username">Username: 
+        <input type="text" name="username" placeholder="username"><br>
+      </label>
 
-  <label for="password">Password:
-  <input type="password" name="password" placeholder="Password"><br>
-  </label>
+      <br>
+
+      <label for="password">Password:
+      <input type="password" name="password" placeholder="Password"><br>
+      </label>
+      
+      <br>
+
+      <input type="submit" value="Log In"> 
+    </form>
+  </section>
   
-  <br>
+  <footer>
+    <h2>Don't have an account, sign up <a class="white-link" href="/signup">here</a>!</h2>
+  </footer>
 
-  <input type="submit" value="Log In"> 
-</form>
-
-<h4>Don't have an account, sign up <a href="/signup">here</a>!</h4>
+</div>
