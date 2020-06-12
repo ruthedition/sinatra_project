@@ -7,25 +7,17 @@ class WinesController < ApplicationController
 
   post '/wines' do 
     country = Country.find_by(name: params[:country])
-    type = params[:wine_type].empty? ? params[:wine] : params[:wine_type]
-    # # binding.pry
-    # if country == nil 
-    #   @error = "Please be sure to check your country and type fields."
-    #   @countries = Country.all.order(:name)
-    #   erb :'wines/new'
-    # end
       @wine = Wine.new(
-      name: params[:name], 
+      name: params[:name].gsub(/[\<\>\/]/, ""), 
       country: country, 
-      wine_type: type, 
+      wine_type: params[:wine_type], 
       price: params[:price], 
       year_sealed: params[:year]
     ) 
-    if @wine.save! 
+    if @wine.save 
       current_user.wines << @wine
       redirect "users/#{current_user.slug}"
     else 
-      @error = "We were not able to add your wine to the collection. Please try again."
       @countries = Country.all.order(:name)
       erb :'wines/new'
     end 
@@ -43,12 +35,12 @@ class WinesController < ApplicationController
   patch '/wines/:id' do
     @wine = Wine.find_or_create_by(id: params[:id])
     country = Country.find_by(name: params[:country])
-    type = params[:wine_type].empty? || params[:wine_type] == "Select One" ? params[:wine] : params[:wine_type]
+    binding.pry
     authorize(current_user)
     if @wine && @wine.update(
-      name: params[:name], 
+      name: params[:name].gsub(/[\<\>\/]/, ""), 
       country: country, 
-      wine_type: type, 
+      wine_type: params[:wine_type], 
       price: params[:price], 
       year_sealed: params[:year]
     )
