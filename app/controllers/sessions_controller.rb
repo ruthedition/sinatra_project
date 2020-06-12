@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
 
   post '/signup' do
    user = User.new(username: params[:username].gsub(/[\<\>\/]/, ""), email: params[:email].gsub(/[\<\>\/]/, ""), password: params[:password])
-    # user = User.new(params])
     if user.save
       session[:user_id] = user.id
       redirect :"/users/#{user.slug}"     
@@ -32,7 +31,7 @@ class SessionsController < ApplicationController
 
   delete '/logout' do 
     session.clear
-    redirect '/login'
+    redirect '/'
   end 
 
 end
