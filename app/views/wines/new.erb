@@ -1,9 +1,11 @@
 <div class="new-wine">
 
   <section class="error"> 
-    <% if @error %>
-      <img src="/images/broken_glass.png">
-        <p><%= @error %></p>
+    <% if @wine && @wine.errors.any? %>
+    <img src="/images/broken_glass.png">
+    <%@wine.errors.full_messages.each do |m|%>
+        <p><%= m %></p>
+        <% end %>
     <% end %>
   </section>
   
@@ -20,21 +22,22 @@
       <br>
       <div> 
         <label for="type">Country: </label>
-          <select name="country" required>
-            <option value="Select One"> Select One</option>
+        <input type="text" name="country" list="country" placeholder="Select Country">
+          <datalist id="country" name="country" required>
+            <option value="" disabled selected> Select One</option>
             <%@countries.each do |country|%>  
               <option value="<%=country.name%>"><%=country.name%></option>
             <% end %>
-          
-          </select> <br>
+          </datalist> <br>
       </div>
       
 
       <br>
       <div>
         <label for="wine_type">Wine Type: </label>
-          <select name="wine_type" required>
-            <option value="Select One"> Select One</option>
+        <input type="text" name="wine_type" list="wines" placeholder="Select Wine Type">
+          <datalist id="wines" name="wine_type" required>
+            <option value="" disabled selected></option>
             <option value="Riesling"> Riesling</option>
             <option value="Pinot Gris"> Pinot Gris</option>
             <option value="Sauvignon Blanc"> Sauvignon Blanc</option>
@@ -43,19 +46,13 @@
             <option value="Zinfandel"> Zinfandel</option>
             <option value="Syrah"> Syrah</option>
             <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
-          </select><br>
+          </datalist><br>
       </div>
       
       <br>
       <div>
-        <label for="other">Other type of wine if not found in the list above:</label>
-          <input type="text" name="wine" placeholder="Wine Type">
-      </div>
-     
-      <br>
-      <div>
         <label for="price">Price:</label>
-          <input type="number" name="price" placeholder="$0.00"><br>
+          <input type="number" name="price" placeholder="20" required><br>
       </div>
      
 
@@ -63,7 +60,7 @@
       <div>
         <label for="year">Year Sealed:</label>
           <%time = Time.now%>
-          <input type="number" min="1900" max="<%=time.year%>" name="year" placeholder="2015"><br>
+          <input type="number" min="1900" max="<%=time.year%>" name="year" placeholder="2015" required><br>
       </div>
       
       <br>

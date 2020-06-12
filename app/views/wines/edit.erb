@@ -1,12 +1,14 @@
 <div class="edit-wine">
 
-  <section id="error">
-    <% if @error %>
-      <img src="/images/broken_glass.png">
-      <p><%= @error %></p>
+  <section class="error"> 
+    <% if @wine && @wine.errors.any? %>
+    <img src="/images/broken_glass.png">
+    <%@wine.errors.full_messages.each do |m|%>
+        <p><%= m %></p>
+        <% end %>
     <% end %>
   </section>
-  
+
   <header>
     <h2>Edit <%=@wine.name%></h2>
   </header>
@@ -21,20 +23,19 @@
       <br>
 
       <label for="type">Country: </label>
-
-        <select name="country" required>
-          <option> <%=@wine.country.name%></option>
+      <input type="text" name="country" id="country">
+        <datalist id="country" name="country" required>
           <%@countries.each do |country|%>  
             <option value="<%=country.name%>"><%=country.name%></option>
           <% end %>
-        
-        </select>
+        </datalist>
 
       <br>
 
       <label for="wine_type">Wine Type: </label>
-        <select name="wine_type" required>
-          <option> <%=@wine.wine_type%></option>
+      <input type="text" name="wine_type" list="wines">
+        <datalist id="wines" name="wine_type" required>
+          <option value="<%=@wine.wine_type %>"><%= @wine.wine_type %> </option>
           <option value="Riesling"> Riesling</option>
           <option value="Pinot Gris"> Pinot Gris</option>
           <option value="Sauvignon Blanc"> Sauvignon Blanc</option>
@@ -43,23 +44,18 @@
           <option value="Zinfandel"> Zinfandel</option>
           <option value="Syrah"> Syrah</option>
           <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
-        </select>
-      
-      <br>
-
-      <label for="other">Please enter the type of wine below if not found in the list above</label><br>
-        <input type="text" name="wine" value="">
-
+        </datalist>
+  
       <br>
       
       <label for="price">Price:</label>
-        <input type="number" name="price" value="<%=@wine.price%>">
+        <input type="number" name="price" value="<%=@wine.price%>" required>
 
       <br>
 
       <label for="year">Year Sealed:</label>
         <%time = Time.now%>
-          <input type="number" min="1900" max="<%=time.year%>" name="year" value="<%=@wine.year_sealed%>">
+          <input type="number" min="1900" max="<%=time.year%>" name="year" value="<%=@wine.year_sealed%>" required>
 
       <br>
 

@@ -1,3 +1,6 @@
+
+
+
 <div class="wine">
   
   <section id="img">
@@ -7,6 +10,7 @@
   <header id="update-link">
     <h3 id="edit-links">
       <a class="white-link" href="/wines/<%=@wine.id%>/edit">Update Bottle</a>
+      
       <form id="delete-form" action="/wines/<%= @wine.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
         <input class="white-link" type="submit" value="Delete">
