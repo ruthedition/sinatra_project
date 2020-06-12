@@ -9,8 +9,8 @@ class WinesController < ApplicationController
     country = Country.find_by(name: params[:country])
       @wine = Wine.new(
       name: params[:name].gsub(/[\<\>\/]/, ""), 
-      country: country, 
-      wine_type: params[:wine_type], 
+      country: country.gsub(/[\<\>\/]/, ""), 
+      wine_type: params[:wine_type].gsub(/[\<\>\/]/, ""), 
       price: params[:price], 
       year_sealed: params[:year]
     ) 
@@ -27,20 +27,18 @@ class WinesController < ApplicationController
    get '/wines/:id/edit' do
     @countries = Country.all.order(:name)
     @wine = Wine.find_by(id: params[:id])
-    authorize(@wine.user)
+    authorize(@wine.user)    
     erb :'wines/edit'
   end 
-  
   
   patch '/wines/:id' do
     @wine = Wine.find_or_create_by(id: params[:id])
     country = Country.find_by(name: params[:country])
-    binding.pry
     authorize(current_user)
     if @wine && @wine.update(
       name: params[:name].gsub(/[\<\>\/]/, ""), 
       country: country, 
-      wine_type: params[:wine_type], 
+      wine_type: params[:wine_type].gsub(/[\<\>\/]/, ""), 
       price: params[:price], 
       year_sealed: params[:year]
     )
@@ -56,7 +54,6 @@ class WinesController < ApplicationController
     authorize(@wine.user)
     erb :'wines/show'
   end 
-
 
   delete '/wines/:id' do 
     @wine = Wine.find_by(id: params[:id])

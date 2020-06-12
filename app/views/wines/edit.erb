@@ -15,7 +15,7 @@
 
   <section id="edit-wine-form">
     <form action="/wines/<%=@wine.id%>" method="POST">
-    <input type="hidden" name="_method" value="patch">
+      <input type="hidden" name="_method" value="patch">
 
       <label for="name">Bottle Name:</label>
       <input type="text" name="name" value="<%=@wine.name%>" required>
@@ -23,8 +23,9 @@
       <br>
 
       <label for="type">Country: </label>
-      <input type="text" name="country" id="country">
+      <input type="text" name="country" list="country" value="<%=@wine.country.name%>">
         <datalist id="country" name="country" required>
+          <option value="<%=@wine.country.name%>"></option>
           <%@countries.each do |country|%>  
             <option value="<%=country.name%>"><%=country.name%></option>
           <% end %>
@@ -33,7 +34,7 @@
       <br>
 
       <label for="wine_type">Wine Type: </label>
-      <input type="text" name="wine_type" list="wines">
+      <input type="text" name="wine_type" list="wines" value="<%=@wine.wine_type %>">
         <datalist id="wines" name="wine_type" required>
           <option value="<%=@wine.wine_type %>"><%= @wine.wine_type %> </option>
           <option value="Riesling"> Riesling</option>

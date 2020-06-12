@@ -19,20 +19,10 @@
   </header>
 
   <section id="description">
-    <h2>Name: <%= @wine.name %><br></h2>
-    <% if @wine.wine_type == "Select One" %>
-      <h2>Wine Type: <%= "You do not have a wine type selected" %></h2>
-    <% else %>
-      <h2>Wine Type: <%= @wine.wine_type %><br></h2>
-    <% end %>
-    <% if @wine.country == nil %>
-      <h2>Country: <%= "You do not have a country selected" %></h2>
-    <% else %>
-      <h2>Country: <%= @wine.country.name %><br></h2>
-    <% end %>
+    <h2>Name: <%= @wine.name %><br></h2>   
+    <h2>Country: <%= @wine.country.name %><br></h2>
     <h2>Year Sealed: <%= @wine.year_sealed %><br></h2>
     <h2>Price: <%= @wine.price %></h2>
-
   </section>
 </div>
   

@@ -4,8 +4,8 @@
     <h2>Update Your Acccount</h2>
   </header>
   
-  ` <section id="edit-account-form">
-      <form action="/users/<%=@user.slug%>" method='POST'>
+  <section id="edit-account-form">
+    <form action="/users/<%=@user.slug%>" method='POST'>
       <label for="username">Username: 
         <input type="text" name="username" value="<%= @user.username %>"><br>
       </label>
@@ -23,11 +23,10 @@
       </label>
       
       <br>
+
       <div>
         <input id="button" type="submit" value="Update"> 
       </div>
-    </form>`
+    </form>
   </section>
- 
-
 </div>
