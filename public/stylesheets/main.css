@@ -59,7 +59,7 @@ footer {
 .login #error-login-form {
   background-color: #f5f1f0;
   text-align: center;
-  padding: 180px;
+  padding: 186px;
   font-size: larger;
 }
 
@@ -86,5 +86,5 @@ footer {
   background-color: #f5f1f0;
   margin: 0px;
   display: block;
-  padding-top: 78px;
+  padding-top: 90px;
 }
