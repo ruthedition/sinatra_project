@@ -8,9 +8,9 @@ class WinesController < ApplicationController
   post '/wines' do 
     country = Country.find_by(name: params[:country])
       @wine = Wine.new(
-      name: params[:name].gsub(/[\<\>\/]/, ""), 
+      name: sanitize(params[:name]), 
       country: country, 
-      wine_type: params[:wine_type].gsub(/[\<\>\/]/, ""), 
+      wine_type: sanitize(params[:wine_type]), 
       price: params[:price], 
       year_sealed: params[:year]
     ) 
