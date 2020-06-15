@@ -9,7 +9,7 @@ class WinesController < ApplicationController
     country = Country.find_by(name: params[:country])
       @wine = Wine.new(
       name: params[:name].gsub(/[\<\>\/]/, ""), 
-      country: country.gsub(/[\<\>\/]/, ""), 
+      country: country, 
       wine_type: params[:wine_type].gsub(/[\<\>\/]/, ""), 
       price: params[:price], 
       year_sealed: params[:year]
@@ -36,15 +36,14 @@ class WinesController < ApplicationController
     country = Country.find_by(name: params[:country])
     authorize(current_user)
     if @wine && @wine.update(
-      name: params[:name].gsub(/[\<\>\/]/, ""), 
+      name: sanitize(params[:name]), 
       country: country, 
-      wine_type: params[:wine_type].gsub(/[\<\>\/]/, ""), 
+      wine_type: sanitize(params[:wine_type]), 
       price: params[:price], 
       year_sealed: params[:year]
     )
       redirect "users/#{current_user.slug}"
     else 
-      @error = "We were not able to update your wine. Please try again."
       erb :'wines/<%=@wine.id%>/edit'
     end 
   end 

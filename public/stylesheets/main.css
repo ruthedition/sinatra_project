@@ -1,6 +1,8 @@
 body, html {
   height: 100%;
-  margin: 0px;
+  margin: 0px;    
+  /* background-color: #f5f1f0; */
+
 }
 
 header, footer {
@@ -52,7 +54,7 @@ footer {
 
 .login #login-form {
   text-align: center;
-  padding: 270px;
+  padding: 160px;
   font-size: larger;
 }
 
@@ -65,26 +67,43 @@ footer {
 
 .signup #signup-form {
   text-align: center;
-  padding: 170px;
+  padding: 118px;
   font-size: larger;
-  margin: 62px;
+  margin: 31px;
+}
+
+.signup #error-signup-form {
+  background-color: #f5f1f0;
+  text-align: center;
+  padding: 116px;
+  font-size: larger;
+  height: 370px;
 }
 
 .error img {
-  position: fixed;
-  margin-left: 732px;
-  margin-top: -80px;
+  
+  position: absolute;
+  margin-left: 122px;
+  margin-top: -113px;
   opacity: .3;
-  height: 492px;
-  width: 579px;
+  height: 322px;
+  width: 572px;
   background-color: #f5f1f0;
 }
 
 
-.login .error h2#error-text {
+.error h2#error-text {
   text-align: center;
   background-color: #f5f1f0;
   margin: 0px;
   display: block;
-  padding-top: 90px;
+  padding-top: 0px;
+}
+
+.error {
+  text-align: center;
+    background-color: #f5f1f0;
+    margin: 0px;
+    display: block;
+    padding-top: 78px;
 }

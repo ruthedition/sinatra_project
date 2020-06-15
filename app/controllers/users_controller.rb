@@ -12,11 +12,14 @@ class UsersController < ApplicationController
     erb :'users/edit'
   end 
 
-  post '/users/:slug' do 
+  patch '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
     authorize(@user)
-    @user.update(username: params[:username].gsub(/[\<\>\/]/, ""), email: params[:email], password: params[:password])
-    erb :'users/show'
+    if @user.update(username: sanitize(params[:username]), email: params[:email], password: params[:password])
+      redirect "users/#{@user.slug}"
+    else 
+      erb :'users/<%=@user.slug%>/edit'
+    end 
   end 
     
 end

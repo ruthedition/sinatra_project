@@ -30,6 +30,10 @@ class ApplicationController < Sinatra::Base
       redirect "/users/#{user.slug}" if user != current_user
     end 
 
+    def sanitize(params)
+      params.gsub(/[\<\>\/"']/, "")
+    end
+
   end 
 
 end

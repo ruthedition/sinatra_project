@@ -4,7 +4,7 @@
     <% if @user && @user.errors.any? %>
       <img src="/images/broken_glass.png">
       <% @user.errors.full_messages.each do |msg| %>
-        <p> <%= msg %> </p>
+        <h2 id="error-text"> <%= msg %> </h2>
       <% end %>
     <% end %>
   </section>
@@ -13,7 +13,7 @@
     <h2>Sign up to create your collection of wines</h2>
   </header>
 
-  <section id="signup-form">
+  <section id="<%=@user && @user.errors.any? ? 'error-signup-form' : 'signup-form'%>">
     <form action="/signup" method='POST'>
       <label for="username">Username: 
         <input type="text" name="username" placeholder="username"><br>

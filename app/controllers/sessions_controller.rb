@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
   end 
 
   post '/signup' do
-   user = User.new(username: params[:username].gsub(/[\<\>\/]/, ""), email: params[:email].gsub(/[\<\>\/]/, ""), password: params[:password])
-    if user.save
-      session[:user_id] = user.id
-      redirect :"/users/#{user.slug}"     
+   @user = User.new(username: sanitize(params[:username]), email: sanitize(params[:email]), password: params[:password])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect :"/users/#{@user.slug}"     
     else
       erb :'sessions/signup'
     end 
