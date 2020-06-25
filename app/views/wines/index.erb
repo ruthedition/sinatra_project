@@ -1,0 +1,16 @@
+<div class="user-show">
+
+  <header>
+    <h2>Welcome, here is a list of wines.</h2> 
+  </header>
+
+  <section id="wine-list">
+    <% @wine.each do |wine| %>
+      <h2>
+        <%= wine.name %>
+      </h2>
+    <% end %>
+  </section>
+  
+</div>
+

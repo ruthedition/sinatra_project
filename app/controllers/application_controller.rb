@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
 
     def authorize(user)
       authenticate
-      redirect "/users/#{user.slug}" if user != current_user
+      redirect "/users/#{current_user.slug}" if user != current_user
     end 
 
     def sanitize(params)

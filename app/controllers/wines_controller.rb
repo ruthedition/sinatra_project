@@ -1,5 +1,10 @@
 class WinesController < ApplicationController
 
+  get '/wines' do 
+    @wine = Wine.all
+    erb :'wines/index'
+  end 
+  
   get '/wines/new' do
     @countries = Country.all.order(:name)
     erb :'wines/new'
