@@ -24,7 +24,7 @@ class WinesController < ApplicationController
       
   end 
 
-   get '/wines/:id/edit' do
+  get '/wines/:id/edit' do
     @countries = Country.all.order(:name)
     @wine = Wine.find_by(id: params[:id])
     authorize(@wine.user)    
